@@ -7,10 +7,12 @@ Alunos :
     Robson Ferreira 14A
 */
 
+
 #include<utility>
 #include<vector>
 #include<iostream>
 #include <queue>
+#include <fstream>
 using namespace std;
 
 typedef pair<int, int> ii; // pares de inteiros
