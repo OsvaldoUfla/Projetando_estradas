@@ -7,6 +7,11 @@ Alunos :
     Robson Ferreira dos Santos Junior 202120530 14A
 */
 
+/**
+ * Funcionamento do programa:
+ * Na main é feita a leitura dos casos de teste `c` e do número de vértices `n` e de arestas `m` de cada caso. Além disso é feita a leitura dos extremos das arestas e o peso delas de forma a preencher a lista de adjacência `LA` correspondente ao caso de teste em questão.
+ * Em seguida, é chamado o algoritmo de prim através de uma função de mesmo nome. Nele é gerada a Árvore Geradora Máxima. Ao percorrer os vértices dela, retorna-se o menor valor para o peso de uma aresta no grafo que foi gerado. O resultado é mostrado na função principal, mostrando o valor desta aresta.
+ */
 
 #include<utility>
 #include<vector>
@@ -57,7 +62,7 @@ int prim()
     atualizaFila(0);
     
     // Menor aresta da arvore geradora Máxima
-    int resultado = 1001;
+    int resultado = 1001; // o valor inicial de 1.001 foi aplicado, pois o valor maximo aceito para o peso de um vertice, nesse exercicio, é de 1.000
  
     while(!Q.empty())
     {
@@ -98,20 +103,20 @@ int main(){
             int contador = 0, continua = 0;
             for(vector<vii>::iterator it = LA.begin(); it != LA.end() && continua < 2; ++it)
             {
-            if(contador == u) 
-            {
-                ii par1(v, w);
-                (*it).push_back(par1);    
-                continua++;
-            }
-        
-            else if(contador == v)
-            {
-                ii par2(u, w);
-                (*it).push_back(par2);    
-                continua++;
-            }
-            contador++;
+                if(contador == u) 
+                {
+                    ii par1(v, w);
+                    (*it).push_back(par1);    
+                    continua++;
+                }
+            
+                else if(contador == v)
+                {
+                    ii par2(u, w);
+                    (*it).push_back(par2);    
+                    continua++;
+                }
+                contador++;
             }
         }
         
