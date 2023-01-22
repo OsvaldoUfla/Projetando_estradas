@@ -78,7 +78,7 @@ int prim()
      
         if(!explorado[v])
         {   
-            if(w < resultado){
+            if(u.first < resultado){
                 resultado = u.first;
             }         
             atualizaFila(v); // O(logm)
