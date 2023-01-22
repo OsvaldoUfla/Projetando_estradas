@@ -66,7 +66,7 @@ int prim()
     int resultado = 10000000;
  
     // peso de uma aresta em cada iteracao
-    int w;
+    //int w;
  
     while(!Q.empty())
     {
