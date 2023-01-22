@@ -56,18 +56,15 @@ int prim()
     explorado.assign(n, 0);
     atualizaFila(0);
     
-    // custo da AGM
+    // Menor aresta da arvore geradora Máxima
     int resultado = 1001;
- 
-    // peso de uma aresta em cada iteracao
-    //int w;
  
     while(!Q.empty())
     {
         ii u = Q.top(); // O(1)
         Q.pop(); // O(logm)
 
-        int w = u.first; // retirando o negativo cadastrado na heap
+        int w = u.first; // peso de uma aresta em cada iteracao
         int v = u.second;
      
         if(!explorado[v])
