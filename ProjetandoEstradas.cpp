@@ -9,8 +9,16 @@ Alunos :
 
 /**
  * Funcionamento do programa:
- * Na main é feita a leitura dos casos de teste `c` e do número de vértices `n` e de arestas `m` de cada caso. Além disso é feita a leitura dos extremos das arestas e o peso delas de forma a preencher a lista de adjacência `LA` correspondente ao caso de teste em questão.
- * Em seguida, é chamado o algoritmo de prim através de uma função de mesmo nome. Nele é gerada a Árvore Geradora Máxima. Ao percorrer os vértices dela, retorna-se o menor valor para o peso de uma aresta no grafo que foi gerado. O resultado é mostrado na função principal, mostrando o valor desta aresta.
+ * Na main é feita a leitura dos casos de teste `c` e 
+ * do número de vértices `n` e de arestas `m` de cada caso. 
+ * Além disso é feita a leitura dos extremos das arestas e o 
+ * peso delas de forma a preencher a lista de adjacência
+ *  `LA` correspondente ao caso de teste em questão.
+ * Em seguida, é chamado o algoritmo de prim através de uma
+ *  função de mesmo nome. Nele é gerada a Árvore Geradora Máxima. 
+ * Ao percorrer os vértices dela, retorna-se o menor valor para o 
+ * peso de uma aresta no grafo que foi gerado. O resultado é mostrado 
+ * na função principal, mostrando o valor desta aresta.
  */
 
 #include<utility>
