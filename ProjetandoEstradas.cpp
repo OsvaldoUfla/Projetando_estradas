@@ -4,7 +4,7 @@ GCC218 - Algoritmos em Grafos
 Professor: Mayron César de O. Moreira.
 Alunos :
     Osvaldo Rodrigues de Faria Junior 201911203 14A
-    Robson Ferreira 14A
+    Robson Ferreira dos Santos Junior 202120530 14A
 */
 
 
@@ -42,17 +42,11 @@ int c;
 void atualizaFila(int u)
 {
     explorado[u] = 1;
-    int y = LA[u].size();//mudei aqui pq no runcodes tá dando warning a comparação entre int e vector<vii>::size_type
-    for(int j = 0; j < y; j++)
+    
+    for(int j = 0; j < int(LA[u].size()); j++)
     {
         ii v = LA[u][j];
         if(!explorado[v.first])
-          /* valor: peso; chave: id do vertice
-           * o valor negativo se deve ao fato de
-           * que a heap do C++ eh implementada como
-           * uma heap-max, e para desempate, prioriza-se
-           * aqui o id de menor indice
-           */
           Q.push(ii(v.second, v.first)); 
     }
 }
@@ -63,7 +57,7 @@ int prim()
     atualizaFila(0);
     
     // custo da AGM
-    int resultado = 100000000;
+    int resultado = 1001;
  
     // peso de uma aresta em cada iteracao
     //int w;
