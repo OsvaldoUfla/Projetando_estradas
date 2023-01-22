@@ -36,13 +36,13 @@ int n;
 int m;
 
 //número de casos de teste
-int o;
+int c;
 
 // funcao que atualiza a fila de prioridades
 void atualizaFila(int u)
 {
     explorado[u] = 1;
-    int y = LA[u].size();
+    int y = LA[u].size();//mudei aqui pq no runcodes tá dando warning a comparação entre int e vector<vii>::size_type
     for(int j = 0; j < y; j++)
     {
         ii v = LA[u][j];
@@ -63,7 +63,7 @@ int prim()
     atualizaFila(0);
     
     // custo da AGM
-    int resultado = 10000000;
+    int resultado = 100000000;
  
     // peso de uma aresta em cada iteracao
     //int w;
@@ -73,13 +73,13 @@ int prim()
         ii u = Q.top(); // O(1)
         Q.pop(); // O(logm)
 
-        //int w = u.first; // retirando o negativo cadastrado na heap
+        int w = u.first; // retirando o negativo cadastrado na heap
         int v = u.second;
      
         if(!explorado[v])
         {   
             if(u.first < resultado){
-                resultado = u.first;
+                resultado = w;
             }         
             atualizaFila(v); // O(logm)
         }
@@ -90,9 +90,10 @@ int prim()
 
 int main(){
 
-    cin >> n >> m >> o;
-    
-    for(int h = 0; h < o; h++){
+    cin >> c;
+    for(int h = 0; h < c; h++)
+    {
+        cin >> n >> m;
         for(int i = 0; i < n; i++)
         {
             vii lista;
@@ -122,8 +123,9 @@ int main(){
             contador++;
             }
         }
-    
+        
         cout << prim() << endl;
+        LA.clear();//limpa a lista de adjacencia
     }
     return 0;
 }
