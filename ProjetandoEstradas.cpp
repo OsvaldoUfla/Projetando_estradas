@@ -70,7 +70,8 @@ int prim()
     atualizaFila(0);
     
     // Menor aresta da arvore geradora Máxima
-    int resultado = 1001; // o valor inicial de 1.001 foi aplicado, pois o valor maximo aceito para o peso de um vertice, nesse exercicio, é de 1.000
+    int resultado = 1001; // o valor inicial de 1.001 foi aplicado, pois o 
+                          //valor maximo aceito para o peso de um vertice, nesse exercicio, é de 1.000
  
     while(!Q.empty())
     {
