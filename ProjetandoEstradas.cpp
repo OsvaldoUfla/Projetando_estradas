@@ -73,13 +73,13 @@ int prim()
         ii u = Q.top(); // O(1)
         Q.pop(); // O(logm)
 
-        int w = u.first; // retirando o negativo cadastrado na heap
+        //int w = u.first; // retirando o negativo cadastrado na heap
         int v = u.second;
      
         if(!explorado[v])
         {   
             if(w < resultado){
-                resultado = w;
+                resultado = u.first;
             }         
             atualizaFila(v); // O(logm)
         }
