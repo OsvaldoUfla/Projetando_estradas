@@ -35,11 +35,15 @@ int n;
 // numero de arestas
 int m;
 
+//número de casos de teste
+int o;
+
 // funcao que atualiza a fila de prioridades
 void atualizaFila(int u)
 {
     explorado[u] = 1;
-    for(int j = 0; j < LA[u].size(); j++)
+    int y = LA[u].size();
+    for(int j = 0; j < y; j++)
     {
         ii v = LA[u][j];
         if(!explorado[v.first])
@@ -49,7 +53,7 @@ void atualizaFila(int u)
            * uma heap-max, e para desempate, prioriza-se
            * aqui o id de menor indice
            */
-          Q.push(ii(-v.second, -v.first)); 
+          Q.push(ii(v.second, v.first)); 
     }
 }
 
@@ -59,7 +63,7 @@ int prim()
     atualizaFila(0);
     
     // custo da AGM
-    int resultado = 0;
+    int resultado = 10000000;
  
     // peso de uma aresta em cada iteracao
     int w;
@@ -69,12 +73,14 @@ int prim()
         ii u = Q.top(); // O(1)
         Q.pop(); // O(logm)
 
-        int w = -u.first; // retirando o negativo cadastrado na heap
-        int v = -u.second;
+        int w = u.first; // retirando o negativo cadastrado na heap
+        int v = u.second;
      
         if(!explorado[v])
-        {
-            resultado += w;         
+        {   
+            if(w < resultado){
+                resultado = w;
+            }         
             atualizaFila(v); // O(logm)
         }
     }
@@ -84,39 +90,41 @@ int prim()
 
 int main(){
 
-    cin >> n >> m;
- 
-    for(int i = 0; i < n; i++)
-    {
-        vii lista;
-        LA.push_back(lista);
-    }
-        
-    int u, v, w; // extremos das arestas, e peso de cada aresta
-    for(int i = 0; i < m; i++)
-    {
-        cin >> u >> v >> w;
-        int contador = 0, continua = 0;
-        for(vector<vii>::iterator it = LA.begin(); it != LA.end() && continua < 2; ++it)
+    cin >> n >> m >> o;
+    
+    for(int h = 0; h < o; h++){
+        for(int i = 0; i < n; i++)
         {
-          if(contador == u) 
-          {
-            ii par1(v, w);
-            (*it).push_back(par1);    
-            continua++;
-          }
-       
-          else if(contador == v)
-          {
-            ii par2(u, w);
-            (*it).push_back(par2);    
-            continua++;
-          }
-          contador++;
+            vii lista;
+            LA.push_back(lista);
         }
+            
+        int u, v, w; // extremos das arestas, e peso de cada aresta
+        for(int i = 0; i < m; i++)
+        {
+            cin >> u >> v >> w;
+            int contador = 0, continua = 0;
+            for(vector<vii>::iterator it = LA.begin(); it != LA.end() && continua < 2; ++it)
+            {
+            if(contador == u) 
+            {
+                ii par1(v, w);
+                (*it).push_back(par1);    
+                continua++;
+            }
+        
+            else if(contador == v)
+            {
+                ii par2(u, w);
+                (*it).push_back(par2);    
+                continua++;
+            }
+            contador++;
+            }
+        }
+    
+        cout << prim() << endl;
     }
- 
-    cout << "Custo da AGM: " << prim() << endl;
     return 0;
 }
    
